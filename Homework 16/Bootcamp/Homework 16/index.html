@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askyline Inc.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; 
+        }
+        header {
+            background-color: #424242; 
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #009688; 
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        nav a:hover {
+            background-color: #004d40; /
+        }
+        main {
+            padding: 20px;
+        }
+        .image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .text-section {
+            text-align: justify;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        
+        #lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); 
+            z-index: 1000; 
+        }
+
+        #lightbox-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            z-index: 1001; 
+        }
+
+        #lightbox-container img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 20px auto; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Askyline Inc.</h1>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <main>
+        <div class="image">
+            <img src="Images/It's a Pic of me.png" alt="Image">
+            >
+        </div>
+        <div class="text-section">
+            <h2>Welcome to My Portfolio</h2>
+            <p>
+                Hello, I'm Austin Aguilar, a 22-year-old graduate of UC Berkeley Bootcamp. Originally from San Gabriel, California, I was raised in the vibrant city of East Los Angeles.
+            </p>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Austin Aguilar. All rights reserved.</p>
+    </footer>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+   
+    <script>
+        $(document).ready(function() {
+            $('.lightbox-image').on('click', function() {
+                $('<div id="lightbox-overlay"></div>').appendTo('body');
+                $('<div id="lightbox-container"></div>').appendTo('body');
+                var $img = $('<img>').attr('src', $(this).attr('src')).appendTo('#lightbox-container');
+                $('#lightbox-overlay, #lightbox-container').on('click', function() {
+                    $('#lightbox-overlay, #lightbox-container').remove();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
